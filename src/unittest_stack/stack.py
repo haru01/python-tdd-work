@@ -1,30 +1,29 @@
 class Stack(object):
     def __init__(self, capacity=10):
-        self.nodes = []
-
-        self.capacity = capacity
+        self.__nodes = []
+        self.__capacity = capacity
 
     def size(self):
-        return len(self.nodes)
+        return len(self.__nodes)
 
     def is_empty(self):
         return self.size() == 0
 
     def is_full(self):
-        return self.size() == self.capacity
+        return self.size() == self.__capacity
 
     def push(self, node):
         if self.is_full():
             raise FullStackError("スタックが満杯のためpushできません")
-        self.nodes.append(node)
+        self.__nodes.append(node)
 
     def pop(self):
         if self.is_empty():
             raise EmptyError("スタックが空のためpopできません")
-        return self.nodes.pop()
+        return self.__nodes.pop()
 
     def __str__(self):
-        return "<Stack:" + str(self.nodes) + ">"
+        return "<Stack:" + str(self.__nodes) + ">"
 
 
 class EmptyError(Exception):
