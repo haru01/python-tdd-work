@@ -14,16 +14,16 @@ class Stack(object):
 
     def push(self, node):
         if self.is_full():
-            raise FullStackError("スタックが満杯のためpushできません")
+            raise FullStackError('スタックが満杯のためpushできません')
         self.__nodes.append(node)
 
     def pop(self):
         if self.is_empty():
-            raise EmptyError("スタックが空のためpopできません")
+            raise EmptyError('スタックが空のためpopできません')
         return self.__nodes.pop()
 
     def __str__(self):
-        return "<Stack:" + str(self.__nodes) + ">"
+        return '<Stack:' + str(self.__nodes) + '>'
 
 
 class EmptyError(Exception):

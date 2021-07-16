@@ -64,11 +64,14 @@ class TestStackSize(object):
 
     def test_複数回PushAndPopしたらPushマイナスPopした回数を返すこと(self, empty_stack):
         stack = empty_stack
+        # act & assert 1
         stack.push(10)
         stack.push(10)
         assert stack.size() == 2
+        # act & assert 2
         stack.pop()
         assert stack.size() == 1
+        # act & assert 3
         stack.pop()
         assert stack.size() == 0
 
@@ -76,21 +79,21 @@ class TestStackSize(object):
 class TestStackPush(object):
     def test_１回pushでき_サイズが増えること(self, empty_stack):
         # arrange
-        subject = empty_stack
+        stack = empty_stack
         # act
-        subject.push(10)
+        stack.push(10)
         # assert
-        assert str(subject) == "<Stack:[10]>"
+        assert str(stack) == '<Stack:[10]>'
 
     def test_複数pushでき_サイズが増えること(self, empty_stack):
         # arrange
-        subject = empty_stack
+        stack = empty_stack
         # act
-        subject.push(10)
-        subject.push(20)
-        subject.push(30)
+        stack.push(10)
+        stack.push(20)
+        stack.push(30)
         # assert
-        assert str(subject) == "<Stack:[10, 20, 30]>"
+        assert str(stack) == '<Stack:[10, 20, 30]>'
 
     def test_FullStackErrorが投げられること満杯の場合(self, full_stack):
         with pytest.raises(FullStackError):
@@ -100,21 +103,21 @@ class TestStackPush(object):
 class TestStackPop(object,):
     def test_１回Popできサイズが減ること＿最後に積まれた要素が取得できる(self, stack_in_10_20):
         # arrange
-        subject = stack_in_10_20
+        stack = stack_in_10_20
         # act
-        result = subject.pop()
+        result = stack.pop()
         # assert
-        assert subject.size() == 1
+        assert stack.size() == 1
         assert result == 20
 
     def test_複数Popできサイズが減ること＿最後に積まれた要素が取得できる(self, stack_in_10_20):
         # arrange
-        subject = stack_in_10_20
+        stack = stack_in_10_20
         # act
-        resultA = subject.pop()
-        resultB = subject.pop()
+        resultA = stack.pop()
+        resultB = stack.pop()
         # assert
-        assert subject.size() == 0
+        assert stack.size() == 0
         assert resultA == 20
         assert resultB == 10
 

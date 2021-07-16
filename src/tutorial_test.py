@@ -9,18 +9,18 @@ def div(a, b):
 def test_assert_equal比較で検証():
     # assert
     assert 1 + 1 == 2
-    assert div(12, 4) == 3, "assertで検証"
+    assert div(12, 4) == 3, 'assertで検証'
 
 
 # 例外のテスト
 def test_div_ZeroDivisionErrorが発生すること_zeroで割った場合():
-    with pytest.raises(ZeroDivisionError, match="division by zero"):
+    with pytest.raises(ZeroDivisionError, match='division by zero'):
         div(10, 0)
 
 
 # パラメタライズテスト 12/4=3, 10/5=2, 100/25=4
 @pytest.mark.parametrize(
-    "a, b, expected",
+    'a, b, expected',
     [(12, 4, 3),
      (10, 5, 2),
      (100, 25, 4)],
@@ -31,7 +31,7 @@ def test_div_できること(a, b, expected):
 
 # assertの落ち葉拾い
 def test_assert_inで含んでいるか検証():
-    assert "abc" in "aaabcde"
+    assert 'abc' in 'aaabcde'
     assert 20 in [10, 20, 30]
 
 
@@ -47,6 +47,8 @@ def test_不等号():
 def test_TrueFalse():
     assert True
     assert not False
+    assert isinstance('abc', str) is True
+    assert isinstance(1, str) is False
 
 
 # classでグルーピング
@@ -81,7 +83,7 @@ class TestFixtureSample(object):
 
 # フィクスチャによるSetup, Teardown
 global global_users
-global_users = ["user0"]
+global_users = ['user0']
 
 
 class TestFixtureSetupTeardown(object):
@@ -90,20 +92,20 @@ class TestFixtureSetupTeardown(object):
         # 前処理
         global global_users
         temp = global_users.copy()
-        global_users.append("userA")
+        global_users.append('userA')
         # テスト実行の際に引数で引き渡し
         yield global_users
         # 後処理
         global_users = temp
-        assert global_users == ["user0"]
+        assert global_users == ['user0']
 
     def test_appendB(self, users):
-        users.append("userB")
-        assert users == ["user0", "userA", "userB"]
+        users.append('userB')
+        assert users == ['user0', 'userA', 'userB']
 
     def test_appendC(self, users):
-        users.append("userC")
-        assert users == ["user0", "userA", "userC"]
+        users.append('userC')
+        assert users == ['user0', 'userA', 'userC']
 
 # # スコープによって実行回数が異なる フィクスチャ
 # # TODO
