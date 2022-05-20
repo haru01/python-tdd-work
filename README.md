@@ -20,6 +20,15 @@ pytest
 pytest-watch
 ```
 
+## dockerを使わない場合
+
+python3, pipがインストール済み前提で下記を実行
+
+```
+pip install -r requirements.txt
+pytest-watch
+```
+
 # 次は？
 
 src/tutorial_test.py に pytestでテストを書く最低限の文法を説明します。
