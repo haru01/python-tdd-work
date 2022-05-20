@@ -37,11 +37,11 @@ class TestStackIsEmpty(object):
 
 
 class TestStackIsFull(object):
-    def test_Trueを返す_満杯の場合(self, full_stack):
+    def test_満杯の場合はTrueを返す(self, full_stack):
         # act & assert
         assert full_stack.is_full() is True
 
-    def test_Falseを返す_満杯でない場合(self, full_stack):
+    def test_満杯でない場合はFalseを返す(self, full_stack):
         # arrange
         stack = full_stack
         stack.pop()
