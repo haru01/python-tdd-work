@@ -5,7 +5,7 @@ def div(a, b):
     return a / b
 
 
-# メソッド名のプレフィックスは[test]
+# メソッド名のプレフィックスは[test]
 def test_assert_equal比較で検証():
     # assert
     assert 1 + 1 == 2

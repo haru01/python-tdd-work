@@ -1,33 +1,29 @@
-# 前提条件
- * Docker がインストール済み
- * Docker Compose がインストール済み
 
 # 実行確認
 
-### コンテナの起動 & コンテナへの接続
-```
-docker-compose up -d --build
-docker-compose exec python3 bash
-```
-
-### pytestを 実行する場合(コンテナに接続後)
-```
-pytest
-```
-
-### watch-testを実行する場合(コンテナに接続後)
-```
-pytest-watch
-```
-
-## dockerを使わない場合
-
+## テスト実行
 python3, pipがインストール済み前提で下記を実行
 
 ```
 pip install -r requirements.txt
 pytest-watch
 ```
+
+## Dockerを使う場合
+### コンテナの起動 & コンテナへの接続
+ * Docker がインストール済み
+ * Docker Compose がインストール済み
+
+```
+docker-compose up -d --build
+docker-compose exec python3 bash
+```
+
+```
+pytest
+```
+
+TODO: コンテナで保存すると即時テスト実行する方法
 
 # 次は？
 
